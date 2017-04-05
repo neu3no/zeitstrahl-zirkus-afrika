@@ -1,0 +1,58 @@
+body, html{
+	height:100%;
+	width:100%;
+	margin:0 ;
+	padding:0;
+}
+body {
+	display: flex;
+	flex-flow: row nowrap;
+	font-family: sans-serif;
+	#container_main{
+		flex:1;
+		display:flex;
+		flex-flow:column nowrap;
+
+		.header_text{
+			font-weight:bold;
+			font-size:1.4em;
+		}
+		#container_main_0{
+			flex-grow:0;
+			flex-shrink:0;
+			flex-basis:2em;
+		}
+		#container_main_1{
+			flex-grow:1;
+			flex-shrink:0;
+			flex-basis:51%;
+			overflow:auto;
+			.qualle.list.label{
+				display:none;
+			}
+			.qualle.list.wrapper{
+				display:block;
+				list-style:none;
+				margin:0;
+				padding:0;
+
+				.list.article{
+					header{
+						font-weight:bold;
+						font-size:1.2em;
+					}
+					p{
+						white-space:pre-line;
+					}
+				}
+			}	
+		}
+		#container_main_2{
+			flex-grow:0;
+			flex-shrink:0;
+			flex-basis:2em;
+		}
+	}	
+}
+
+

@@ -1,0 +1,62 @@
+{
+	"name" : "AFRIKA",
+	"version" : "0.1",
+	"dependencies" : [ 
+		"../greenscale/qualle/project.json",
+		"../greenscale/qualle_elements/containers/project.json",
+		"../greenscale/qualle_elements/lists/project.json",
+		"../greenscale/polyp/project.json" 
+	],
+	"roottask" : {
+		"type" : "schwamm",
+		"parameters" : {
+			"includes" : [
+				"../greenscale/qualle_elements/containers/build/schwamm.json",
+				"../greenscale/qualle_elements/lists/build/schwamm.json",
+				"../greenscale/polyp/build/schwamm.json",
+				"../greenscale/qualle/build/schwamm.json" 
+			],
+			"output" : {
+				"save" : "build/schwamm.json",
+				"dump" : {
+					"logic-impl" : "build/polyp.js"
+				}
+			}
+		},
+		"sub" : [
+			{
+				"name" : "logic",
+				"type" : "babel",
+				"parameters" : {
+					"inputs" : [ "source/main.js" ],
+					"output": "build/main.js",
+					"preset" : "es2016"
+				}
+			},
+			{
+				"name" : "index",
+				"type" : "copy",
+				"parameters" : {
+					"input" : "source/index.html",
+					"output": "build/index.html"
+				}
+			},
+			{
+				"name" : "style",
+				"type" : "lesscss",
+				"parameters" : {
+					"inputs" : ["source/style.less"],
+					"output": "build/style.css"
+				}
+			},
+			{
+				"name" : "data",
+				"type" : "copy",
+				"parameters" : {
+					"input" : "source/data.json",
+					"output": "build/data.json"
+				}
+			}
+		]
+	}
+}
